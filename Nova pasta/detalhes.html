@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - DEADsec Interface</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2QyMDNuaGkweDVxMGhjMHNnYjhmb2h5a3hucGtpOXI0a21qejNmMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pkfWxD1OWjwhnpF2Rb/giphy.gif');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      font-family: 'Share Tech Mono', monospace;
+      color: white;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7); 
+      z-index: -1;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 500px;
+      margin: 80px auto;
+      padding: 30px;
+      background-color: rgba(31, 29, 29, 0.95);
+      border: 1px solid #333;
+      box-shadow: 0 0 15px #00f0ff33;
+    }
+
+    h1 {
+      color: #00f0ff;
+      margin-bottom: 20px;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 14px;
+      color: #ffffff;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #111;
+      border: 1px solid #00f0ff;
+      color: #ffffff;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    input::placeholder {
+      color: #999;
+    }
+
+    .btn {
+      background-color: #00f0ff;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 15px;
+      cursor: pointer;
+      text-transform: uppercase;
+      width: 100%;
+    }
+
+    .btn:hover {
+      background-color: #00c4dd;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      text-align: center;
+      color: #ccc;
+    }
+
+    .footer a {
+      color: #00f0ff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    #details-screen {
+      display: none;
+      white-space: pre-line;
+      font-size: 14px;
+      background-color: #000;
+      padding: 20px;
+      border: 1px solid #00f0ff;
+      box-shadow: 0 0 10px #00f0ff44;
+      color: #00f0ff;
+    }
+
+    #typed-output {
+      min-height: 300px;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      background-color: #111;
+      color: #00f0ff;
+      padding: 8px 15px;
+      border: 1px solid #00f0ff;
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      background-color: #00c4dd;
+      color: black;
+    }
+  </style>
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <script src="script.js"></script>
+</head>
+<body>
+
+  <div class="overlay"></div>
+
+  <div class="container" id="login-screen">
+    <h1>LOGIN - DEADsec SYSTEM</h1>
+      <label for="username">Usuário</label>
+      <input type="text" id="usuario" placeholder="Digite seu nome de usuário">
+
+      <label for="password">Senha</label>
+      <input type="password" id="senha" placeholder="Digite sua senha">
+
+
+      <button onclick="teste()" class="btn">ENTRAR</button>
+
+    <div class="footer">
+      Watch_Dogs™ Login Interface — <a href="#" onclick="showDetails()">Descubra a Verdade</a>
+    </div>
+  </div>
+
+  <div class="container" id="details-screen">
+    <h1>ctOS 2.0 :: Interface de Diagnóstico</h1>
+    <div id="typed-output"></div>
+    <button class="back-btn" onclick="goBack()">⟵ Voltar</button>
+  </div>
+
+  <script>
+    const detailsScreen = document.getElementById('details-screen');
+    const loginScreen = document.getElementById('login-screen');
+    const output = document.getElementById('typed-output');
+
+    const text = `
+  ;
+
+    function showDetails() {
+      loginScreen.style.display = 'none';
+      detailsScreen.style.display = 'block';
+      output.textContent = '';
+      typeText(text, 0);
+    }
+
+    function goBack() {
+      loginScreen.style.display = 'block';
+      detailsScreen.style.display = 'none';
+    }
+
+    function typeText(str, i) {
+      if (i < str.length) {
+        output.textContent += str.charAt(i);
+        setTimeout(() => typeText(str, i + 1), 20);
+      }
+    }
+  </script>
+
+</body>
+</html>
